@@ -11,6 +11,10 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Rollcall.Sample.Entities", 
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Rollcall.Benchmark", "benchmark\Rollcall.Benchmark\Rollcall.Benchmark.csproj", "{AF1D848F-EF7F-4ADB-A057-D3A5A6933B18}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Benchmark", "Benchmark", "{95B078ED-333D-4FFC-8553-4AAE5D67DF6B}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Sample", "Sample", "{CF38288B-E322-483A-8FCF-3B10D2481984}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -36,6 +40,11 @@ Global
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{E04E4B6B-A9B8-4947-9FF7-1EDF76667FBE} = {CF38288B-E322-483A-8FCF-3B10D2481984}
+		{D11DDC48-6AC1-444B-9322-2A9D6ED062F7} = {CF38288B-E322-483A-8FCF-3B10D2481984}
+		{AF1D848F-EF7F-4ADB-A057-D3A5A6933B18} = {95B078ED-333D-4FFC-8553-4AAE5D67DF6B}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {4A9E85BA-70C1-4355-8E22-FDDFD4010F83}

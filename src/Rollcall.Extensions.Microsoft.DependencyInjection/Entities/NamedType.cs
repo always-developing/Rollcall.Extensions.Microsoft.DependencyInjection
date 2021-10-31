@@ -6,7 +6,7 @@ namespace Rollcall.Extensions.Microsoft.DependencyInjection
 {
     public class NamedType<TInterface>
     {
-        public NamedType(string _name, Type _implementation)
+        public NamedType(string _name, object _implementation)
         {
             Name = _name;
             Implementation = _implementation;
@@ -14,6 +14,6 @@ namespace Rollcall.Extensions.Microsoft.DependencyInjection
 
         public string Name { get; set; }
 
-        public Type Implementation { get; set; }
+        public object Implementation { get; set; }
     }
 }

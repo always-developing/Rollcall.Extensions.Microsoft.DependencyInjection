@@ -33,7 +33,7 @@ namespace Rollcall.Extensions.Microsoft.DependencyInjection
         public static IServiceCollection AddScoped<TService>(this IServiceCollection services, string name, Func<IServiceProvider, object> implementation) where TService : class
         {
             ConfigureRollcallBase(services);
-            services.AddSingleton(new NamedFunc<TService>(name, implementation));
+            services.AddSingleton(new NamedType<TService>(name, implementation));
             ConfigureScoped(services, typeof(TService), implementation);
 
             return services;
@@ -62,7 +62,7 @@ namespace Rollcall.Extensions.Microsoft.DependencyInjection
         public static IServiceCollection AddSingleton<TService>(this IServiceCollection services, string name, Func<IServiceProvider, object> implementation) where TService : class
         {
             ConfigureRollcallBase(services);
-            services.AddSingleton(new NamedFunc<TService>(name, implementation));
+            services.AddSingleton(new NamedType<TService>(name, implementation));
             ConfigureSingleton(services, typeof(TService), implementation);
 
             return services;
@@ -91,7 +91,7 @@ namespace Rollcall.Extensions.Microsoft.DependencyInjection
         public static IServiceCollection AddTransient<TService>(this IServiceCollection services, string name, Func<IServiceProvider, object> implementation) where TService : class
         {
             ConfigureRollcallBase(services);
-            services.AddSingleton(new NamedFunc<TService>(name, implementation));
+            services.AddSingleton(new NamedType<TService>(name, implementation));
             ConfigureTransient(services, typeof(TService), implementation);
 
             return services;
@@ -157,16 +157,6 @@ namespace Rollcall.Extensions.Microsoft.DependencyInjection
         private static object MakeGenericNamedType(string name, Type serviceType, Type implementation)
         {
             var genericOptions = typeof(NamedType<>);
-            Type[] typeArugments = { serviceType };
-            var genericInstance = genericOptions.MakeGenericType(typeArugments);
-
-
-            return Activator.CreateInstance(genericInstance, name, implementation);
-        }
-
-        private static object MakeGenericNamedFunc(string name, Type serviceType, Func<IServiceProvider, object> implementation)
-        {
-            var genericOptions = typeof(NamedFunc<>);
             Type[] typeArugments = { serviceType };
             var genericInstance = genericOptions.MakeGenericType(typeArugments);
 

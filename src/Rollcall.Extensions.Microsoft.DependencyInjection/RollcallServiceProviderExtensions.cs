@@ -15,18 +15,15 @@ namespace Rollcall.Extensions.Microsoft.DependencyInjection
 
             if (namedType == null)
             {
-                var namedFuncs = provider.GetServices<NamedFunc<TInterface>>();
-                var namedFunc = namedFuncs.FirstOrDefault(x => x.Name == name);
-
-                if (namedFunc == null)
-                {
-                    throw new InvalidOperationException($"Unable to resolve dependency of type {typeof(TInterface).FullName} with the name '{name}'");
-                }
-
-                return (TInterface)namedFunc.Implementation.Invoke(provider);
+                throw new InvalidOperationException($"Unable to resolve dependency of type {typeof(TInterface).FullName} with the name '{name}'");
             }
 
-            return (TInterface)provider.GetService(namedType.Implementation);
+            if(namedType.Implementation is Type)
+            {
+                return (TInterface)provider.GetService((Type)namedType.Implementation);
+            }
+
+            return (TInterface)((Func<IServiceProvider, object>)namedType.Implementation).Invoke(provider);
 
         }
     }
