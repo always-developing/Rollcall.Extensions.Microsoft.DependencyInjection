@@ -3,6 +3,15 @@
   <PropertyGroup>
     <TargetFramework>netstandard2.0</TargetFramework>
     <GenerateDocumentationFile>True</GenerateDocumentationFile>
+    <SignAssembly>False</SignAssembly>
+    <GeneratePackageOnBuild>False</GeneratePackageOnBuild>
+    <PackageLicenseExpression>MIT</PackageLicenseExpression>
+    <Authors>JP Seini</Authors>
+    <Version>1.0.0-beta1</Version>
+    <Company />
+    <Description>Extension methods for Microsoft dependency injection to provider named implementation support.</Description>
+    <Copyright>Copyright JP Seini</Copyright>
+    <PackageTags>dependencyinjection;DI;.NET;dependency;injection;servicecollection;named;rollcall</PackageTags>
   </PropertyGroup>
 
   <ItemGroup>
