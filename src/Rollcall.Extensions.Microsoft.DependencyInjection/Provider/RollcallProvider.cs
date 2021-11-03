@@ -9,7 +9,7 @@ namespace Rollcall.Extensions.Microsoft.DependencyInjection
     public class RollcallProvider<TInterface> : IRollcallProvider<TInterface> where TInterface : class
     {
         private readonly IServiceProvider _serviceProvider;
-        private readonly NamedImplementation<TInterface> _namedTypes;
+        private readonly NamedImplementation<TInterface> _namedImplementation;
 
         /// <summary>
         /// Create an instance of RollcallProvider
@@ -19,14 +19,14 @@ namespace Rollcall.Extensions.Microsoft.DependencyInjection
         public RollcallProvider(IServiceProvider serviceProvider, NamedImplementation<TInterface> namedImplementation)
         {
             _serviceProvider = serviceProvider;
-            _namedTypes = namedImplementation;
+            _namedImplementation = namedImplementation;
         }
 
         /// <inheritdoc/>
         public TInterface GetService(string name)
         {
             // First try see if the implementation has been added to the dictionary
-            var implementation = _namedTypes.Get(name);
+            var implementation = _namedImplementation.Get(name);
 
             if(implementation == null)
             {

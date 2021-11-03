@@ -5,7 +5,7 @@ namespace MultiImplementationBenchark
 {
     public class UploaderTypes<T>
     {
-        private Dictionary<string, Type> _dependencyTypes;
+        private readonly Dictionary<string, Type> _dependencyTypes;
 
         public UploaderTypes() => _dependencyTypes = new Dictionary<string, Type>();
 

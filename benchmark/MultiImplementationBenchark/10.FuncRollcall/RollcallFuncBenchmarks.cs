@@ -18,7 +18,7 @@ namespace MultiImplementationBenchark
                 .AddTransient<AWSUploader>()
                 .AddTransient<AzureUploader>()
                 .AddTransient<FTPUploader>()
-                .AddNamedType<IFileUploader>(builder => builder
+                .AddNamedService<IFileUploader>(builder => builder
                     .AddTransient("aws", sp => sp.GetService(typeof(AWSUploader)))
                     .AddTransient("azure", sp => sp.GetService(typeof(AzureUploader)))
                     .AddTransient("ftp", sp => sp.GetService(typeof(FTPUploader)))

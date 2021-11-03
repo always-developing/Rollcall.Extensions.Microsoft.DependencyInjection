@@ -2,7 +2,7 @@
 {
     public class DistinctHandler
     {
-        public IGenericUploader<AWSUploader> _uploader { get; }
+        private readonly IGenericUploader<AWSUploader> _uploader;
 
         public DistinctHandler(IGenericUploader<AWSUploader> uploader)
         {

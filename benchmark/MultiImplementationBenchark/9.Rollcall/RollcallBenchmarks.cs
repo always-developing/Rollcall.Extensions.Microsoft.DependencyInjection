@@ -15,7 +15,7 @@ namespace MultiImplementationBenchark
             host = Host.CreateDefaultBuilder()
              .ConfigureServices((context, services) => services
                 .AddTransient<RollcallHandler>()
-                .AddNamedType<IFileUploader>(builder => builder
+                .AddNamedService<IFileUploader>(builder => builder
                     .AddTransient("aws", typeof(AWSUploader))
                     .AddTransient("azure", typeof(AzureUploader))
                     .AddTransient("ftp", typeof(FTPUploader))

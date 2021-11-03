@@ -2,7 +2,7 @@
 {
     public  class FactoryHandler
     {
-        public FileUploaderFactory _factory { get; }
+        private readonly FileUploaderFactory _factory;
 
         public FactoryHandler(FileUploaderFactory factory)
         {

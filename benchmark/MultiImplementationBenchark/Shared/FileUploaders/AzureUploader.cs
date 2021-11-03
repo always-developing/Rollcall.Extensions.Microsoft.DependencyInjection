@@ -1,4 +1,6 @@
-﻿namespace MultiImplementationBenchark
+﻿using System;
+
+namespace MultiImplementationBenchark
 {
     public class AzureUploader : IFileUploader
     {

@@ -8,7 +8,7 @@ namespace MultiImplementationBenchark
         static void Main()
         {
 #if DEBUG
-            var benchmark = new RollcallFuncBenchmarks();
+            var benchmark = new RollcallBenchmarks();
             benchmark.Execute();
             return;
 #endif

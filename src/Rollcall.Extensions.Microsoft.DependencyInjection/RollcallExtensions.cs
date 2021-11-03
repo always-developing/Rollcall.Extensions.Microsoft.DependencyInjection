@@ -16,13 +16,13 @@ namespace Rollcall.Extensions.Microsoft.DependencyInjection
         /// <param name="services">The service collection implementation</param>
         /// <param name="builder">The named implementation builder</param>
         /// <returns></returns>
-        public static IServiceCollection AddNamedType<TInterface>(this IServiceCollection services, Action<INamedImplementationBuilder<TInterface>> builder) where TInterface : class
+        public static IServiceCollection AddNamedService<TInterface>(this IServiceCollection services, Action<INamedImplementationBuilder<TInterface>> builder) where TInterface : class
         {
-            var namedType = new NamedImplementation<TInterface>();
-            services.AddSingleton(namedType);
+            var namedImplementation = new NamedImplementation<TInterface>();
+            services.AddSingleton(namedImplementation);
             services.TryAddScoped(typeof(IRollcallProvider<TInterface>), typeof(RollcallProvider<TInterface>));
 
-            builder.Invoke(new NamedImplementationBuilder<TInterface>(services, namedType));
+            builder.Invoke(new NamedImplementationBuilder<TInterface>(services, namedImplementation));
 
             return services;
         }
