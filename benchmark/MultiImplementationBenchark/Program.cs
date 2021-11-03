@@ -17,7 +17,7 @@ namespace MultiImplementationBenchark
                   .WithOption(ConfigOptions.JoinSummary, true);
 
             BenchmarkRunner.Run(new[]{
-                BenchmarkConverter.TypeToBenchmarks( typeof(EnumerableBenchmarks), config),
+                BenchmarkConverter.TypeToBenchmarks( typeof(EnumerableBenchmark), config),
                 BenchmarkConverter.TypeToBenchmarks( typeof(FactoryBenchmark), config),
                 BenchmarkConverter.TypeToBenchmarks( typeof(TypeFactoryBenchmark), config),
                 BenchmarkConverter.TypeToBenchmarks( typeof(DelegateBenchmark), config),
@@ -25,8 +25,8 @@ namespace MultiImplementationBenchark
                 BenchmarkConverter.TypeToBenchmarks( typeof(DistinctBenchmark), config),
                 BenchmarkConverter.TypeToBenchmarks( typeof(DistinctFactoryBenchmark), config),
                 BenchmarkConverter.TypeToBenchmarks( typeof(DistinctLookupFactoryBenchmark), config),
-                BenchmarkConverter.TypeToBenchmarks( typeof(RollcallBenchmarks), config),
-                BenchmarkConverter.TypeToBenchmarks( typeof(RollcallFuncBenchmarks), config)
+                BenchmarkConverter.TypeToBenchmarks( typeof(RollcallBenchmark), config),
+                BenchmarkConverter.TypeToBenchmarks( typeof(RollcallFuncBenchmark), config)
             });
         }
     }

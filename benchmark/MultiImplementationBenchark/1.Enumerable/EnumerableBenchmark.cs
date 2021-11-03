@@ -5,11 +5,11 @@ using Microsoft.Extensions.Hosting;
 namespace MultiImplementationBenchark
 {
     [MemoryDiagnoser]
-    public class EnumerableBenchmarks
+    public class EnumerableBenchmark
     {
         private readonly IHost host;
         
-        public EnumerableBenchmarks()
+        public EnumerableBenchmark()
         {
             host = Host.CreateDefaultBuilder()
              .ConfigureServices((context, services) => services

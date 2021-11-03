@@ -6,19 +6,22 @@ using Rollcall.Extensions.Microsoft.DependencyInjection;
 namespace MultiImplementationBenchark
 {
     [MemoryDiagnoser]
-    public class RollcallBenchmarks
+    public class RollcallFuncBenchmark
     {
         private readonly IHost host;
         
-        public RollcallBenchmarks()
+        public RollcallFuncBenchmark()
         {
             host = Host.CreateDefaultBuilder()
              .ConfigureServices((context, services) => services
-                .AddTransient<RollcallHandler>()
+                .AddTransient<RollcallFuncHandler>()
+                .AddTransient<AWSUploader>()
+                .AddTransient<AzureUploader>()
+                .AddTransient<FTPUploader>()
                 .AddNamedService<IFileUploader>(builder => builder
-                    .AddTransient("aws", typeof(AWSUploader))
-                    .AddTransient("azure", typeof(AzureUploader))
-                    .AddTransient("ftp", typeof(FTPUploader))
+                    .AddTransient("aws", sp => sp.GetService(typeof(AWSUploader)))
+                    .AddTransient("azure", sp => sp.GetService(typeof(AzureUploader)))
+                    .AddTransient("ftp", sp => sp.GetService(typeof(FTPUploader)))
                 )
              ).Build();
         }
@@ -26,7 +29,7 @@ namespace MultiImplementationBenchark
         [Benchmark]
         public void Execute()
         {
-            var handler = (RollcallHandler)host.Services.GetService(typeof(RollcallHandler));
+            var handler = (RollcallFuncHandler)host.Services.GetService(typeof(RollcallFuncHandler));
             handler.Execute();
         }
     }
