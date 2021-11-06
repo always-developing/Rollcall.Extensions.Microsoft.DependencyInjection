@@ -12,9 +12,7 @@ Or via the .NET CLI:
     
     dotnet add package Rollcall.Extensions.Microsoft.DependencyInjection
 
-Or via NuGet Packager Manager in Visual Studio    
-
-Direct link to Rollcall on NuGet: [https://www.nuget.org/packages/Rollcall.Extensions.Microsoft.DependencyInjection/](https://www.nuget.org/packages/Rollcall.Extensions.Microsoft.DependencyInjection/) 
+Or via NuGet Packager Manager in Visual Studio
 
 ## How to use Rollcall
 ### Configuring the dependency injection container
@@ -83,5 +81,7 @@ public class RollcallHandler
 ```
 
 ## Benchmarks
-There are a variety of ways to handle multiple implementations of the same interface using the default .NET dependency injection implementation. <br>Depending on the use case and the complexity of your implementations (e.g. the number of dependencies the implementations have) Rollcall might not be the best solution. <br><br>
+There are a variety of ways to handle multiple implementations of the same interface using the default .NET dependency injection implementation. 
+Depending on the use case and the complexity of your implementations (e.g. the number of dependencies the implementations have) Rollcall might not be the best solution.  
+
 See [this blog post](https://www.alwaysdeveloping.net/p/multiple-implementations/) with the various methods of handling multiple implementations, as well as some simple benchmarks.
