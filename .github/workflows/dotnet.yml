@@ -20,10 +20,14 @@ jobs:
         dotnet-version: 5.0.x
     - name: Restore dependencies
       run: dotnet restore
-    - name: Build
+    - name: Pack
       run: dotnet pack --configuration Release
-    - name: Upload a Build Artifact
-      uses: actions/upload-artifact@v2.2.4
-      with:
-        name: artifacts
-        path: ./src/Rollcall.Extensions.Microsoft.DependencyInjection/bin/Release/*nupkg
+#    - name: Upload a Build Artifact
+#      uses: actions/upload-artifact@v2.2.4
+#      with:
+#        name: artifacts
+#        path: ./src/Rollcall.Extensions.Microsoft.DependencyInjection/bin/Release/*nupkg
+    - name: Push nupkg
+      run: dotnet nuget push ./src/Rollcall.Extensions.Microsoft.DependencyInjection/bin/Release/*.nupkg -k ${{ secrets.ROLLCALLNUGET }} -s https://api.nuget.org/v3/index.json
+    - name: Push snupkg
+      run: dotnet nuget push ./src/Rollcall.Extensions.Microsoft.DependencyInjection/bin/Release/*.snupkg -k ${{ secrets.ROLLCALLNUGET }} -s https://api.nuget.org/v3/index.json      
