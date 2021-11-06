@@ -26,4 +26,4 @@ jobs:
       uses: actions/upload-artifact@v2.2.4
       with:
         name: artifacts
-        path: ./src/Rollcall.Extensions.Microsoft.DependencyInjection/bin/Release/*
+        path: ./src/Rollcall.Extensions.Microsoft.DependencyInjection/bin/Release/*nupkg
