@@ -7,14 +7,19 @@
     <GeneratePackageOnBuild>False</GeneratePackageOnBuild>
     <PackageLicenseExpression>MIT</PackageLicenseExpression>
     <Authors>JP Seini</Authors>
-    <Version>1.0.0-beta1</Version>
-    <Company />
-    <Description>Extension methods for Microsoft dependency injection to provider named implementation support.</Description>
+    <Version>1.0.0</Version>
+    <Description>Provides support for named service registration through the use of extension methods on the IServiceCollection interface, and retrieval of registered service by name using a factory.</Description>
     <Copyright>Copyright JP Seini</Copyright>
     <PackageTags>dependencyinjection;DI;.NET;dependency;injection;servicecollection;named;rollcall</PackageTags>
     <AssemblyOriginatorKeyFile>..\..\Rollcall.snk</AssemblyOriginatorKeyFile>
     <IncludeSymbols>true</IncludeSymbols>
     <SymbolPackageFormat>snupkg</SymbolPackageFormat>
+    <PackageIcon>logo_128x128.png</PackageIcon>
+    <Deterministic>true</Deterministic>
+    <RepositoryUrl>https://github.com/always-developing/Rollcall.Extensions.Microsoft.DependencyInjection.git</RepositoryUrl>
+    <RepositoryType>git</RepositoryType>
+    <PublishRepositoryUrl>true</PublishRepositoryUrl>
+    <Title>Rollcall.Extensions.Microsoft.DependencyInjection</Title>
   </PropertyGroup>
 
   <ItemGroup>
